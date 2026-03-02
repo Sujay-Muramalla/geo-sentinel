@@ -29,3 +29,15 @@ variable "enable_s3_endpoint" {
   type        = bool
   default     = true
 }
+
+variable "enable_security_baseline" {
+  description = "Create baseline security groups and lock down default SG"
+  type        = bool
+  default     = true
+}
+
+variable "app_port" {
+  description = "App port allowed from public tier to private tier"
+  type        = number
+  default     = 3000
+}

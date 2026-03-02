@@ -18,4 +18,10 @@ output "private_route_table_id" {
   value = module.vpc.private_route_table_id
 }
 
+output "public_sg_id" {
+  value = module.vpc.public_sg_id
+}
 
+output "private_sg_id" {
+  value = module.vpc.private_sg_id
+}
