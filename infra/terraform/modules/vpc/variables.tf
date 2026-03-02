@@ -23,3 +23,9 @@ variable "private_subnet_cidrs" {
   description = "List of private subnet CIDRs"
   type        = list(string)
 }
+
+variable "enable_s3_endpoint" {
+  description = "Whether to create an S3 Gateway VPC endpoint"
+  type        = bool
+  default     = true
+}
