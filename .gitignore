@@ -58,7 +58,3 @@ override.tf.json
 .idea/
 
 
-# Environment variables
-.env
-.env.local
-.env.*.local
