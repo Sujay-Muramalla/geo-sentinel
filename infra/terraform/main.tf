@@ -4,7 +4,7 @@
 module "vpc" {
   source = "./modules/vpc"
 
-  name  = "geo-sentinel"
+  name       = "geo-sentinel"
   cidr_block = "10.0.0.0/16"
 
   az_count = 2
