@@ -1,9 +1,9 @@
 # Geo-Sentinel — Last Known Good (EOD Snapshot)
 
-- Date (local): Thu Mar  5 13:40:24 CET 2026
-- Git branch: chore/scripts-eod-recreate-snapshot
-- Git commit: 512d091f4965be0190e758320ee840019e723e68
-- Git short:  512d091
+- Date (local): Thu Mar  5 13:58:57 CET 2026
+- Git branch: chore/eod-snapshot-correctness
+- Git commit: 47fc74ae0b879df2f8531759b90cc02b718d9266
+- Git short:  47fc74a
 
 ## Environment
 - TF_ENV: dev
@@ -16,19 +16,19 @@
 
 ## Terraform Outputs (if infra exists)
 ```
-private_route_table_id = "rtb-00ae021735df31969"
-private_sg_id = "sg-08de5b6e825eafb86"
+private_route_table_id = "rtb-03cdf6d55e35b0299"
+private_sg_id = "sg-032fbc051602bfc5e"
 private_subnet_ids = [
-  "subnet-0a111494d205fdcb4",
-  "subnet-0d947a4dc6b67db9e",
+  "subnet-03936ab39503d7762",
+  "subnet-0b963b21573343967",
 ]
-public_route_table_id = "rtb-0ed9cbd0244ce11fa"
-public_sg_id = "sg-053fdb7143c830a08"
+public_route_table_id = "rtb-0d6ef0a416520075b"
+public_sg_id = "sg-0541743d172bb84ae"
 public_subnet_ids = [
-  "subnet-07d28efb5cb74077c",
-  "subnet-092bc2416ceea5bb0",
+  "subnet-01b6c384629ceadbf",
+  "subnet-0e3541b5376c1c9c0",
 ]
-vpc_id = "vpc-058f022cde386b4d1"
+vpc_id = "vpc-041734561215d0fed"
 ```
 
 ## State Sync Reminder (LOCAL STATE MODE)
