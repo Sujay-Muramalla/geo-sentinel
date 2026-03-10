@@ -8,6 +8,8 @@ if [[ "${1:-}" == "--apply" ]]; then
   APPLY=true
 fi
 
+ORIGINAL_BRANCH="$(git branch --show-current 2>/dev/null || true)"
+
 echo ""
 echo "🌅 Geo-Sentinel BOD Checks"
 echo "=========================="
@@ -17,8 +19,21 @@ git status
 
 echo ""
 echo "🔄 Sync develop"
-git switch develop >/dev/null 2>&1 || true
-git pull --ff-only
+git fetch --prune origin
+
+CURRENT_BRANCH="$(git branch --show-current 2>/dev/null || true)"
+
+if [[ "$CURRENT_BRANCH" != "develop" ]]; then
+  git switch develop
+fi
+
+git pull --ff-only origin develop
+
+if [[ -n "$ORIGINAL_BRANCH" && "$ORIGINAL_BRANCH" != "develop" ]]; then
+  echo ""
+  echo "↩️ Restoring working branch: $ORIGINAL_BRANCH"
+  git switch "$ORIGINAL_BRANCH"
+fi
 
 echo ""
 echo "🔧 Toolchain check"
