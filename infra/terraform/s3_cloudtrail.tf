@@ -65,5 +65,28 @@ resource "aws_s3_bucket_policy" "cloudtrail_logs" {
         }
       }
     ]
+
   })
 }
+
+resource "aws_s3_bucket_lifecycle_configuration" "cloudtrail_logs" {
+  bucket = aws_s3_bucket.cloudtrail_logs.id
+
+  rule {
+    id     = "cloudtrail-log-retention"
+    status = "Enabled"
+
+    filter {
+      prefix = ""
+    }
+
+    expiration {
+      days = var.cloudtrail_log_retention_days
+    }
+
+    noncurrent_version_expiration {
+      noncurrent_days = var.cloudtrail_log_retention_days
+    }
+  }
+}
+
